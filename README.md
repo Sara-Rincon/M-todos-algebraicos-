@@ -24,12 +24,14 @@ $$G(z)= \frac{0.01(z+1)}{z^{3}-2.01z+1}$$
 DATOS:
 * zita = 0.6
 * Tp = 0.5
-* $$0.5=\frac{\pi}{Wn(\sqrt{1-(0.6)^{2}})} to 7.85 rad/s$$
+* $$0.5=\frac{\pi}{Wn(\sqrt{1-(0.6)^{2}})} \to 7.85 rad/s$$
 * K= 1
 * T = 0.1 segundos
 
   $$G_{0}(s)= \frac{61.62}{s^{2}+9.42s+61.62}$$
+  
   $$G_{0}(z)= \frac{61.62}{(\frac{z-1}{0.1})^{2}+9.42(\frac{z-1}{0.1})+61.62}$$
+  
   $$G_{0}(z)= \frac{0.009z+0.008}{z^{3}-1.801z+0.818}$$
   
 El controlador quedaría:
@@ -51,6 +53,34 @@ $$C(z)= \frac{0.934z^{3}-1.004z^{2}-0.822z+0.973}{z^{3}-0.81z^{2}-z+0.81}$$
    * Ts = 1 segundo
    * T = 0.2 segundos
 
+   $$\zeta = \sqrt{\frac{ln^{2}(0.1)}{\pi^{2}+ln^{2}(0.1)}}\to 0.59$$
+
+   $$1=\frac{4}{(0.59)Wn}\to Wn= 6.77$$
+
+   Como el error de estado estacionario debe ser 0, la ganancia proporcional resulta siendo infinito, asi que se supone un valor elevado (10000= para poder realizar el procedimiento de hallar el controlador.
+
+   $$G_{0}(s)=\frac{458300}{s^{2}+7.98s+45.83}$$
+
+   $$G_{0}(z)=\frac{458300}{(\frac{z-1}{0.2})^{2}+7.98(\frac{z-1}{0.2})+45.83}$$
+
+   $$G_{0}(z)=\frac{458300}{25z^{2}-10.1z+30.93}$$
+
+   De forma canonica se tiene:
+
+   $$G_{0}(z)=\frac{18332}{z^{2}-0.40z+1.23}$$
+
+   Y ahora se discretiza G(s) para obtener G(z)
+
+   $$G(z)=\frac{1}{\frac{z^{2}-2z+1}{0.04}+4(\frac{z-1}{0.2})+3}$$
+
+   $$G(z)=\frac{1}{25z^{2}-30z+8} \to \frac{0.04}{z^{2}-1.2z+0.32}$$
+
+
+   Para obtener el controlador se tiene que:
+
+   $$C(z)=\frac{\frac{18332}{z^{2}-0.40z+1.23}}{\frac{0.04}{z^{2}-1.2z+0.32}(1-\frac{18332}{z^{2}-0.40z+1.23})}$$
+
+   
    
 
 ## 2. Igualación de coeficientes: 
