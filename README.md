@@ -2,7 +2,7 @@
 # Introducción a los Métodos Algebraicos 
 Los métodos algebraicos en control digital son técnicas que permiten analizar y diseñar sistemas de control que operan en tiempo discreto, es decir, en terminos de "z". A través de herramientas como la transformada Z y el uso de ecuaciones de diferencia, estos métodos transforman la dinámica de los sistemas continuos en un entorno discreto. Al hacerlo, facilitan el estudio de la estabilidad, respuestas en frecuencia y el diseño de controladores como los PID, que son esenciales en la implementación de controladores modernos.
 
-# 1. Métodos Algebraicos 
+# Métodos Algebraicos 
 >  🔑 Definición: Se realizan para determinar el comportamiento del sistema en lazo cerrado y modificarlo
 ## Características:
 * Se pueden usar en el espacio de LaPlace, en términos de "s" y en el espacio de las "z". Los métodos algebraicos no discriminan esto.
@@ -10,16 +10,50 @@ Los métodos algebraicos en control digital son técnicas que permiten analizar 
 * Se modela completamente la función de transferencia. 
 
 Existen dos tipos de métodos algebraicos: 
-## 1.1 Igualación de modelo: 
+## 1. Igualación de modelo: 
 * G(z) lazo abierto, es conocida 
 * G0(z) lazo cerrado, es lo que se desea
 
 $$G_{0}(z)= \frac{C(z)G(z)}{1+C(z)G(z)} \to C(z)= \frac{G_{0}(z)}{G(z)(1-G_{0}(z))}$$   
 
 # 💡Ejemplo 1
-Se tiene la siguiente planta: $$G(z)= \frac{0.01(z+1)}{z^{3}-2.01z+1}$$ 
+Se tiene la siguiente planta:
 
-## 1.2 Igualación de coeficientes: 
+$$G(z)= \frac{0.01(z+1)}{z^{3}-2.01z+1}$$ 
+
+DATOS:
+* zita = 0.6
+* Tp = 0.5
+* $$0.5=\frac{\pi}{Wn(\sqrt{1-(0.6)^{2}})} to 7.85 rad/s$$
+* K= 1
+* T = 0.1 segundos
+
+  $$G_{0}(s)= \frac{61.62}{s^{2}+9.42s+61.62}$$
+  $$G_{0}(z)= \frac{61.62}{(\frac{z-1}{0.1})^{2}+9.42(\frac{z-1}{0.1})+61.62}$$
+  $$G_{0}(z)= \frac{0.009z+0.008}{z^{3}-1.801z+0.818}$$
+  
+El controlador quedaría:
+
+$$C(z)= \frac{\frac{0.009z+0.008}{z^{3}-1.801z+0.818}}{\frac{0.01(z+1)}{z^{3}-2.01z+1}(1-\frac{0.009z+0.008}{z^{3}-1.801z+0.818})}$$
+
+Lo que da como resultado:
+
+$$C(z)= \frac{0.934z^{3}-1.004z^{2}-0.822z+0.973}{z^{3}-0.81z^{2}-z+0.81}$$
+
+# 📚 Ejercicios 
+1. Se tiene la siguiente planta:
+   
+   $$G(s)=\frac{1}{(s+1)(s+3)} \to \frac{1}{s^2+4s+3}$$
+
+   Los datos deseados que se quieren obtener en lazo cerrado son:
+   * Error de estado estacionario = 0
+   * Mp < 10%
+   * Ts = 1 segundo
+   * T = 0.2 segundos
+
+   
+
+## 2. Igualación de coeficientes: 
 > 🔑 ¿Que se hace?: Se analizan los coeficientes del polinomio característico.
 
 Características adicionales:
