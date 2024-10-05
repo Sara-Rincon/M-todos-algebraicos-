@@ -52,10 +52,15 @@ Características adicionales:
 
 # 💡Ejemplo 2
 Si se tiene G(z) de la siguiente manera: 
+
 $$G(z)= \frac{0.0043}{z^{2}-1.819z+0.8187}$$
+
 Ahora bien, si se desea tener un controlador para ubicar los nuevos polos de la siguiente manera: 
+
 $$p_{1}=0.91+0.23j; p_{2}=0.91-0.23j$$
+
 Entonces el polinomio característico, es decir, el que se desea en lazo cerrado es: 
+
 $$(z-0.91+0.23j)(z-0.91-0.23j)= {\color{Red} z^{2}-1.82z+0.881}$$
 
 Si en lazo cerrado $$G_{0}(z)= \frac{KG(z)}{1+KG(z)}$$, entonces se hacen los siguientes cálculos: 
@@ -81,35 +86,39 @@ Si $$ G_{0}(z)=\frac{C(z)G(z)}{1+C(z)G(z)}\Rightarrow \frac{B(z)N(z)}{{\color{Or
 
 # 💡Ejemplo 3
 Siguiendo el ejemplo 1 y teniendo un controlador que no es bipropio, sucede:
+
   $$C(z)=\frac{B_{0}}{A_{0}+A_{1}z}$$
+  
   Ahora el sistema tendrá 3 polos, por lo que: $$(z-0.91+0.23j)(z-0.91-0.23j)(z-0.91)= {\color{Red} z^{3}-2.73z^{2}+2.537z-0.8017}$$
+  
   En lazo cerrado: $$G_{0}(s)=\frac{0.0043B_{0}}{A_{1}z^{3}+z^{2}(A_{0}-1.819A_{1})+(0.8187A_{1}-1.819A_{0})z+0.8187A_{0}+0.0043B_{0}}$$
-  * Resolviendo la igualdad entre ambos polinomios caracteristicos, se obtiene que NO se satisfacen todas las ecuaciones.
-  * Se analiza que Número de incognitas debe ser igual a numero de ecuaciones.
+  
+  * Resolviendo la igualdad entre ambos polinomios característicos, se obtiene que NO se satisfacen todas las ecuaciones.
+  * Se analiza qué Número de incógnitas debe ser igual a numero de ecuaciones.
 
 # 💡Ejemplo 4
 Siguiendo el ejemplo 2 y teniendo un controlador bipropio, sucede: 
   $$C(z)=\frac{B_{0}+B_{1}z}{A_{0}+A_{1}z}$$
   Ahora el sistema seguirá teniendo 3 polos, por lo que: $$(z-0.91+0.23j)(z-0.91-0.23j)(z-0.91)= {\color{Red} z^{3}-2.73z^{2}+2.537z-0.8017}$$
   En lazo cerrado: $$G_{0}(s)=\frac{0.0043(B_{0}+B_{1}z)}{A_{1}z^{3}+z^{2}(A_{0}-1.819A_{1})+(0.8187A_{1}-1.819A_{0}+0.0043B_{1})z+0.8187A_{0}+0.0043B_{0}}$$
-* Resolviendo la igualdad entre ambos polinomios caracteristicos, se obtiene que A_{0}= -0.911; A_{1}= 1; B_{0}= -12.99 y B_{1}= 14.23
+* Resolviendo la igualdad entre ambos polinomios característicos, se obtiene que A_{0}= -0.911; A_{1}= 1; B_{0}= -12.99 y B_{1}= 14.23
 * Los coeficientes obtenidos satisfacen lo requerido para obtener el controlador, por ende, el controlador resulta siendo:
     $$C(z)=\frac{-12.99+14.23z}{-0.911+z}$$
 
-# Ecuaciones Diafónticas
-* Dado que lo que interesa es el polinomio caracteristico y B(z) y A(z) son las variables a solucionar, entonces se generaliza y simplifica todo con una ecuación diafóntica, en donde, D_{0} serán los puntos de la dinámica del sistema (Denominador) deseados.
+# Ecuaciones Diofánticas
+* Dado que lo que interesa es el polinomio característico y B(z) y A(z) son las variables a solucionar, entonces se generaliza y simplifica todo con una ecuación diofántica, en donde, D_{0} serán los puntos de la dinámica del sistema (Denominador) deseados.
 * Se realiza de la siguiente manera:
 
 ![Figura de prueba](Ecuaciones_Diofanticas.png)
 
-Figura 1. Ecuaciones Diofanticas y su uso.
+Figura 1. Ecuaciones Diofánticas y su uso.
 
 # 💡Ejemplo 4 
 Se tiene $$G(z)=\frac{0.005+0.005z}{z^{2}-2z+1}; C(z)=\frac{B_{0}+B_{1}z}{A_{0}+A_{1}z}$$
 Entonces en lazo cerrado sería: $$G_{0}(s)=\frac{(0.005+0.005z)(B_{0}+B_{1}z)}{(A_{0}+A_{1}z)(z^{2}-2z+1)+(B_{0}+B_{1}z)(0.005+0.005z)}$$
 
 $$D_{0} = A_{1}z^{3}+(A_{0}-2A_{1}+0.005B_{1})z^{2}+(A_{1}-2A_{0}+0.005B_{1}+0.005B_{0})z+A_{0}+0.005B_{0}$$
-Y el polinomio deseado es $$(z+0.2)^3$$ por ende la ecuación diafóntica quedaría:
+Y el polinomio deseado es $$(z+0.2)^3$$ por ende la ecuación diofántica quedaría:
 
 ![Figura de prueba](ejercicio_ED_1.png)
 
@@ -195,4 +204,4 @@ Los resultados obtenidos dan el siguiente controlador:
    $$C(z)= \frac{2.1z-13.2}{z+4.3}$$
    
 # Conclusiones 
-Al aplicar estos métodos, es posible garantizar la estabilidad y eficiencia de los sistemas, adaptándolos a ciertas restricciones/ limitaciones del entorno digital. Y no solo eso, los métodos algebraicos permiten modelar  cualquier sistema en lazo cerrado; Sin embargo, hay que siempre tener en cuenta que aunque matématicamente den los calculos, en el ambito del control a veces es casi imposible implementarlos, por lo que hay que tener cuidado. Además, proporcionan una base sólida para el desarrollo de controladores precisos en aplicaciones industriales, de automatización y mecatrónica, contribuyendo al avance tecnológico en múltiples sectores.
+Al aplicar estos métodos, es posible garantizar la estabilidad y eficiencia de los sistemas, adaptándolas a ciertas restricciones/ limitaciones del entorno digital. Y no solo eso, los métodos algebraicos permiten modelar  cualquier sistema en lazo cerrado; Sin embargo, hay que siempre tener en cuenta que aunque matemáticamente den los cálculos, en el ámbito del control a veces es casi imposible implementarlos, por lo que hay que tener cuidado. Además, proporcionan una base sólida para el desarrollo de controladores precisos en aplicaciones industriales, de automatización y mecatrónica, contribuyendo al avance tecnológico en múltiples sectores.
