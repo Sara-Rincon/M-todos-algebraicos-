@@ -160,20 +160,39 @@ Los resultados obtenidos dan el siguiente controlador:
 2. Se tiene la siguiente planta:
    $$G(z)= \frac{1}{z^{2}-z+3}$$
 
-   Se desea un controlador con la siguiente funcion:
+   Se desea un controlador con la siguiente función:
    $$C(z)= \frac{B_{0}+B_{1}z}{A_{0}+A_{1}z}$$
 
-   Con la siguiente ubicacion de polos deseados en:
+   Con la siguiente ubicación de polos deseados en:
    $$P1 = -3; P2=-0.5; P3= 0.2$$
 
    El polinomio deseado sería:
    $$(z+3)(z+0.5)(z-0.2)= z^{2}+3.5z+1.5(z-0.2) = z^{3}+3.5z^{2}+1.5z-0.2z^{2}-0.7z-0.3 = z^{3}+3.3z^{2}+0.8z-0.3$$
+   
    $$G_{0}(z)= \frac{\frac{B_{0}+B_{1}z}{A_{0}+A_{1}z}(\frac{1}{z^{2}-z+3})}{1+(\frac{1}{z^{2}-z+3})(\frac{B_{0}+B_{1}z}{A_{0}+A_{1}z})}$$
+   
    $$G_{0}(z)= \frac{1(B_{0}+B_{1}z)}{(A_{0}+A_{1}z)(z^{2}-z+3)+B_{0}+B_{1}z}$$
 
+   $$G_{0}(z)= \frac{1(B_{0}+B_{1}z)}{A_{1}z^{3}+z^{2}(A_{0}-A_{1})+(3A_{1}-A_{0}+B_{1})z+3A_{0}+B_{0}}$$
    
-   
-   
+   Al igualar se tiene:
+   $$z^{3}+3.3z^{2}+0.8z-0.3 = A_{1}z^{3}+z^{2}(A_{0}-A_{1})+(3A_{1}-A_{0}+B_{1})z+3A_{0}+B_{0}$$
 
+   $$A_{1} = 1$$
+   
+   $$A_{0}-A_{1}= 3.3$$
+   
+   $$0.8 = 3A_{1}-A_{0}+B_{1}$$
+   
+   $$-0.3 = 3A_{0}+B_{0}$$
+
+   Con las cuatro ecuaciones y las cuatro incógnitos se procede a analizar por sustitución y se obtiene que:
+   
+   $$A_{0}= 4.3; A_{1}= 1; B_{0}= -13.2; B_{1}= 2.1$$
+
+   Entonces el controlador por método de igualación de coeficientes quedaría:
+
+   $$C(z)= \frac{2.1z-13.2}{z+4.3}$$
+   
 # Conclusiones 
 Al aplicar estos métodos, es posible garantizar la estabilidad y eficiencia de los sistemas, adaptándolos a ciertas restricciones/ limitaciones del entorno digital. Y no solo eso, los métodos algebraicos permiten modelar  cualquier sistema en lazo cerrado; Sin embargo, hay que siempre tener en cuenta que aunque matématicamente den los calculos, en el ambito del control a veces es casi imposible implementarlos, por lo que hay que tener cuidado. Además, proporcionan una base sólida para el desarrollo de controladores precisos en aplicaciones industriales, de automatización y mecatrónica, contribuyendo al avance tecnológico en múltiples sectores.
