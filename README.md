@@ -42,47 +42,6 @@ Lo que da como resultado:
 
 $$C(z)= \frac{0.934z^{3}-1.004z^{2}-0.822z+0.973}{z^{3}-0.81z^{2}-z+0.81}$$
 
-# 📚 Ejercicios 
-1. Se tiene la siguiente planta:
-   
-   $$G(s)=\frac{1}{(s+1)(s+3)} \to \frac{1}{s^2+4s+3}$$
-
-   Los datos deseados que se quieren obtener en lazo cerrado son:
-   * Error de estado estacionario = 0
-   * Mp < 10%
-   * Ts = 1 segundo
-   * T = 0.2 segundos
-
-   $$\zeta = \sqrt{\frac{ln^{2}(0.1)}{\pi^{2}+ln^{2}(0.1)}}\to 0.59$$
-
-   $$1=\frac{4}{(0.59)Wn}\to Wn= 6.77$$
-
-   Como el error de estado estacionario debe ser 0, la ganancia proporcional resulta siendo infinito, asi que se supone un valor elevado (10000= para poder realizar el procedimiento de hallar el controlador.
-
-   $$G_{0}(s)=\frac{458300}{s^{2}+7.98s+45.83}$$
-
-   $$G_{0}(z)=\frac{458300}{(\frac{z-1}{0.2})^{2}+7.98(\frac{z-1}{0.2})+45.83}$$
-
-   $$G_{0}(z)=\frac{458300}{25z^{2}-10.1z+30.93}$$
-
-   De forma canonica se tiene:
-
-   $$G_{0}(z)=\frac{18332}{z^{2}-0.40z+1.23}$$
-
-   Y ahora se discretiza G(s) para obtener G(z)
-
-   $$G(z)=\frac{1}{\frac{z^{2}-2z+1}{0.04}+4(\frac{z-1}{0.2})+3}$$
-
-   $$G(z)=\frac{1}{25z^{2}-30z+8} \to \frac{0.04}{z^{2}-1.2z+0.32}$$
-
-
-   Para obtener el controlador se tiene que:
-
-   $$C(z)=\frac{\frac{18332}{z^{2}-0.40z+1.23}}{\frac{0.04}{z^{2}-1.2z+0.32}(1-\frac{18332}{z^{2}-0.40z+1.23})}$$
-
-   
-   
-
 ## 2. Igualación de coeficientes: 
 > 🔑 ¿Que se hace?: Se analizan los coeficientes del polinomio característico.
 
@@ -159,6 +118,62 @@ Figura 2. Ejercicio Ecuaciones diafónticas.
 Los resultados obtenidos dan el siguiente controlador:
 
  $$C(z)=\frac{345.6z-172.8}{z+0.872}$$
+
+ # 📚 Ejercicios 
+1. Se tiene la siguiente planta:
+   
+   $$G(s)=\frac{1}{(s+1)(s+3)} \to \frac{1}{s^2+4s+3}$$
+
+   Los datos deseados que se quieren obtener en lazo cerrado son:
+   * Error de estado estacionario = 0
+   * Mp < 10%
+   * Ts = 1 segundo
+   * T = 0.2 segundos
+
+   $$\zeta = \sqrt{\frac{ln^{2}(0.1)}{\pi^{2}+ln^{2}(0.1)}}\to 0.59$$
+
+   $$1=\frac{4}{(0.59)Wn}\to Wn= 6.77$$
+
+   Como el error de estado estacionario debe ser 0, la ganancia proporcional resulta siendo infinito, asi que se supone un valor elevado (10000= para poder realizar el procedimiento de hallar el controlador.
+
+   $$G_{0}(s)=\frac{458300}{s^{2}+7.98s+45.83}$$
+
+   $$G_{0}(z)=\frac{458300}{(\frac{z-1}{0.2})^{2}+7.98(\frac{z-1}{0.2})+45.83}$$
+
+   $$G_{0}(z)=\frac{458300}{25z^{2}-10.1z+30.93}$$
+
+   De forma canonica se tiene:
+
+   $$G_{0}(z)=\frac{18332}{z^{2}-0.40z+1.23}$$
+
+   Y ahora se discretiza G(s) para obtener G(z)
+
+   $$G(z)=\frac{1}{\frac{z^{2}-2z+1}{0.04}+4(\frac{z-1}{0.2})+3}$$
+
+   $$G(z)=\frac{1}{25z^{2}-30z+8} \to \frac{0.04}{z^{2}-1.2z+0.32}$$
+
+
+   El controlador sería:
+
+   $$C(z)=\frac{\frac{18332}{z^{2}-0.40z+1.23}}{\frac{0.04}{z^{2}-1.2z+0.32}(1-\frac{18332}{z^{2}-0.40z+1.23})}$$
+
+2. Se tiene la siguiente planta:
+   $$G(z)= \frac{1}{z^{2}-z+3}$$
+
+   Se desea un controlador con la siguiente funcion:
+   $$C(z)= \frac{B_{0}+B_{1}z}{A_{0}+A_{1}z}$$
+
+   Con la siguiente ubicacion de polos deseados en:
+   $$P1 = -3; P2=-0.5; P3= 0.2$$
+
+   El polinomio deseado sería:
+   $$(z+3)(z+0.5)(z-0.2)= z^{2}+3.5z+1.5(z-0.2) = z^{3}+3.5z^{2}+1.5z-0.2z^{2}-0.7z-0.3 = z^{3}+3.3z^{2}+0.8z-0.3$$
+   $$G_{0}(z)= \frac{\frac{B_{0}+B_{1}z}{A_{0}+A_{1}z}(\frac{1}{z^{2}-z+3})}{1+(\frac{1}{z^{2}-z+3})(\frac{B_{0}+B_{1}z}{A_{0}+A_{1}z})}$$
+   $$G_{0}(z)= \frac{1(B_{0}+B_{1}z)}{(A_{0}+A_{1}z)(z^{2}-z+3)+B_{0}+B_{1}z}$$
+
+   
+   
+   
 
 # Conclusiones 
 Al aplicar estos métodos, es posible garantizar la estabilidad y eficiencia de los sistemas, adaptándolos a ciertas restricciones/ limitaciones del entorno digital. Y no solo eso, los métodos algebraicos permiten modelar  cualquier sistema en lazo cerrado; Sin embargo, hay que siempre tener en cuenta que aunque matématicamente den los calculos, en el ambito del control a veces es casi imposible implementarlos, por lo que hay que tener cuidado. Además, proporcionan una base sólida para el desarrollo de controladores precisos en aplicaciones industriales, de automatización y mecatrónica, contribuyendo al avance tecnológico en múltiples sectores.
