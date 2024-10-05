@@ -113,7 +113,7 @@ Siguiendo el ejemplo 2 y teniendo un controlador bipropio, sucede:
 
 Figura 1. Ecuaciones Diofánticas y su uso.
 
-# 💡Ejemplo 4 
+# 💡Ejemplo 5
 Se tiene $$G(z)=\frac{0.005+0.005z}{z^{2}-2z+1}; C(z)=\frac{B_{0}+B_{1}z}{A_{0}+A_{1}z}$$
 Entonces en lazo cerrado sería: $$G_{0}(s)=\frac{(0.005+0.005z)(B_{0}+B_{1}z)}{(A_{0}+A_{1}z)(z^{2}-2z+1)+(B_{0}+B_{1}z)(0.005+0.005z)}$$
 
